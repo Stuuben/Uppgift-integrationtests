@@ -25,7 +25,7 @@ export async function handleSubmit() {
 
     if (movies.length > 0) {
       exports.createHtml(movies, container);
-      console.log(container);
+      
     } else {
       exports.displayNoResult(container);
     }
