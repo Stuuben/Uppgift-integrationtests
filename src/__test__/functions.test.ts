@@ -1,6 +1,6 @@
 import { movieSort } from "../ts/functions";
 import { IMovie } from "../ts/models/Movie";
-import { mockData } from "../ts/services/__mock__/moviesevice";
+import { mockData } from "../ts/services/__mocks__/moviesevice";
 
 test("should sort movietitles a-ö", () => {
   //arrange

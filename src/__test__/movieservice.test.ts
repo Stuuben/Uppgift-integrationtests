@@ -5,6 +5,14 @@
 import { IMovie } from "../ts/models/Movie";
 import { getData } from "../ts/services/movieservice";
 
+jest.mock("axios", () => ({
+  get: async () => {
+    return new Promise((resolve) => {
+      resolve({ data: { Search: mockData } });
+    });
+  },
+}));
+
 let mockData: IMovie[] = [
   {
     Title: "Best Movie",
@@ -36,14 +44,6 @@ let mockData: IMovie[] = [
   },
 ];
 
-jest.mock("axios", () => ({
-  get: async () => {
-    return new Promise((resolve) => {
-      resolve({ data: { Search: mockData } });
-    });
-  },
-}));
-
 test("should get mock data", async () => {
   let searchText: string = "star";
 
@@ -51,4 +51,5 @@ test("should get mock data", async () => {
 
   expect(movies.length).toBeGreaterThan(0);
   expect(movies.length).toBe(4);
+  expect(movies[0].Title).toBe("Best Movie");
 });

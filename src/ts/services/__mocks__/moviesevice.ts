@@ -1,6 +1,6 @@
 import { IMovie } from "../../models/Movie";
 
-export let mockData: IMovie[] = [
+export const mockData: IMovie[] = [
   {
     Title: "Best Movie",
     Year: "1992",
@@ -31,7 +31,7 @@ export let mockData: IMovie[] = [
   },
 ];
 
-export const getMovies = async (): Promise<IMovie[]> => {
+export const getData = async (): Promise<IMovie[]> => {
   return new Promise((resolve) => {
     resolve(mockData);
   });
